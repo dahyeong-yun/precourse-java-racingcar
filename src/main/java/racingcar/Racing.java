@@ -12,4 +12,17 @@ public class Racing {
             cars.add(new Car("name"));
         }
     }
+
+    public String getWinnerName() {
+        StringBuffer winnerName = new StringBuffer();
+        int maxDistance = 0;
+
+        for (Car car : cars) {
+            if(maxDistance < car.getDistance()) {
+                winnerName.append(car.getName());
+            }
+        }
+
+        return "morph2";
+    }
 }

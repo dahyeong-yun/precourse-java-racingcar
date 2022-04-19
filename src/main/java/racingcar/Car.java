@@ -10,4 +10,10 @@ public class Car {
     public int getDistance() {
         return this.distance;
     }
+
+    public void goOrNot(int flag) {
+        if(flag >= 4) {
+            goForward();
+        }
+    }
 }

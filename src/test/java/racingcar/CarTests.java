@@ -14,4 +14,13 @@ public class CarTests {
         car.goForward();
         assertThat(car.getDistance()).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("주어진 값이 4 이상이면 전진, 3 이하면 멈춘다")
+    void goOrNotTest() {
+        Car car = new Car();
+        car.goOrNot(4);
+        car.goOrNot(3);
+        assertThat(car.getDistance()).isEqualTo(1);
+    }
 }

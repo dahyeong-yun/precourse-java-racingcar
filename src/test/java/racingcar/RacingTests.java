@@ -12,7 +12,7 @@ public class RacingTests {
         String userInput = "ploy,morph,morph,morph";
         String[] names = userInput.split(",");
         int numberOfNames = names.length;
-        Racing racing = new Racing(numberOfNames);
+        Racing racing = new Racing(names);
         assertThat(racing.cars.size()).isEqualTo(numberOfNames);
     }
 
@@ -23,13 +23,13 @@ public class RacingTests {
         String userInput = "ploy,morph1,morph2,morph3";
         String[] names = userInput.split(",");
         int numberOfNames = names.length;
-        Racing racing = new Racing(numberOfNames);
+        Racing racing = new Racing(names);
 
         // when
+        racing.cars.get(1).goForward();
         racing.cars.get(2).goForward();
 
         // then
-        assertThat(racing.getWinnerName()).isEqualTo("morph2");
+        assertThat(racing.getWinnerName()).isEqualTo("morph1morph2"); // TODO ,처리
     }
-
 }

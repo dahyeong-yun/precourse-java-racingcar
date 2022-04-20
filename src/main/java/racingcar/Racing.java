@@ -1,12 +1,17 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Racing {
     public List<Car> cars;
+    private int lapCount;
 
-    public Racing(String[] carNames) {
+    public Racing(String[] carNames, int lapCount) {
+        this.lapCount = lapCount;
         cars = new ArrayList<>();
         for (String carName : carNames) {
             cars.add(new Car(carName));
@@ -43,5 +48,20 @@ public class Racing {
             maxDistance = currentCarDistance;
         }
         return maxDistance;
+    }
+
+    public void lap() {
+        for (Car car : cars) {
+            car.goOrNot(Randoms.pickNumberInRange(1, 10));
+        }
+    }
+
+    public String start() {
+
+        for (int i = 0; i < this.lapCount; i++) {
+            lap();
+        }
+
+        return getWinnerName();
     }
 }

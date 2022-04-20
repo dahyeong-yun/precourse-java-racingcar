@@ -1,9 +1,15 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
+
+import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.mockStatic;
 
 public class RacingTests {
     @Test
@@ -12,7 +18,7 @@ public class RacingTests {
         String userInput = "ploy,morph,morph,morph";
         String[] names = userInput.split(",");
         int numberOfNames = names.length;
-        Racing racing = new Racing(names);
+        Racing racing = new Racing(names, 1);
         assertThat(racing.cars.size()).isEqualTo(numberOfNames);
     }
 
@@ -23,7 +29,7 @@ public class RacingTests {
         String userInput = "ploy,morph1,morph2,morph3";
         String[] names = userInput.split(",");
         int numberOfNames = names.length;
-        Racing racing = new Racing(names);
+        Racing racing = new Racing(names, 1);
 
         // when
         racing.cars.get(1).goForward();
@@ -32,4 +38,19 @@ public class RacingTests {
         // then
         assertThat(racing.getWinnerName()).isEqualTo("morph1morph2"); // TODO ,처리
     }
+
+    @Test
+    @DisplayName("사용자가 입력한 만큼 랩을 돈다")
+    void racingOneLap() {
+        // given
+        String userInput = "ploy,morph1,morph2";
+        String[] names = userInput.split(",");
+        Racing racing = new Racing(names, 3);
+
+        MockedStatic<Randoms> mock = mockStatic(Randoms.class);
+        mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(4, 2, 3, 5, 7, 1, 7, 2, 4);
+        String result = racing.start();
+        assertThat(result).isEqualTo("ploy");
+    }
 }
+;

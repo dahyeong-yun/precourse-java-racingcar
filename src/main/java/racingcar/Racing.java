@@ -8,20 +8,18 @@ import java.util.List;
 
 public class Racing {
     public List<Car> cars;
-    private int lapCount;
+    private final int lapCount;
     private List<String> winnerName =  new ArrayList<>();
-    private String[] carNames;
     
-    private Racing(String inputNames, int lapCount) {
-        carNames = inputNames.split(",");
+    private Racing(String[] inputNames, int lapCount) {
         this.lapCount = lapCount;
         cars = new ArrayList<>();
-        for (String carName : carNames) {
+        for (String carName : inputNames) {
             cars.add(new Car(carName));
         }
     }
     
-    public static Racing setRacingCondition(String inputNames, int lapCount) {
+    public static Racing setRacingCondition(String[] inputNames, int lapCount) {
         return new Racing(inputNames, lapCount);
     }
 

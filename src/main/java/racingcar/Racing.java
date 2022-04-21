@@ -12,9 +12,8 @@ public class Racing {
     private List<String> winnerName =  new ArrayList<>();
     private String[] carNames;
     
-    
     private Racing(String inputNames, int lapCount) {
-    	carNames = inputNames.split(",");
+        carNames = inputNames.split(",");
         this.lapCount = lapCount;
         cars = new ArrayList<>();
         for (String carName : carNames) {
@@ -23,7 +22,7 @@ public class Racing {
     }
     
     public static Racing setRacingCondition(String inputNames, int lapCount) {
-    	return new Racing(inputNames, lapCount);
+        return new Racing(inputNames, lapCount);
     }
 
     public String getPrintFormatWinnerName() {
@@ -60,11 +59,13 @@ public class Racing {
     public void lap() {
         for (Car car : cars) {
             car.goOrNot(Randoms.pickNumberInRange(1, 10));
+            car.printLabResult();
         }
+        System.out.print("\n");
     }
 
     public String start() {
-
+    	System.out.print("실행 결과\n");
         for (int i = 0; i < this.lapCount; i++) {
             lap();
         }

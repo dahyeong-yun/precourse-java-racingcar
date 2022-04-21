@@ -10,13 +10,20 @@ public class Racing {
     public List<Car> cars;
     private int lapCount;
     private List<String> winnerName =  new ArrayList<>();
+    private String[] carNames;
     
-    public Racing(String[] carNames, int lapCount) {
+    
+    private Racing(String inputNames, int lapCount) {
+    	carNames = inputNames.split(",");
         this.lapCount = lapCount;
         cars = new ArrayList<>();
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
+    }
+    
+    public static Racing setRacingCondition(String inputNames, int lapCount) {
+    	return new Racing(inputNames, lapCount);
     }
 
     public String getPrintFormatWinnerName() {

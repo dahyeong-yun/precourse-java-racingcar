@@ -5,7 +5,14 @@ public class Car {
     private int distance;
 
     public Car(String name) {
+        validateCarName(name);
         this.name = name;
+    }
+
+    private void validateCarName(String name) {
+        if(name.length() > 5 || name.length() == 0) {
+            throw new IllegalArgumentException("[ERROR]");
+        }
     }
 
     public void goForward() {

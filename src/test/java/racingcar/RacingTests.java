@@ -26,7 +26,7 @@ public class RacingTests {
     @DisplayName("이동거리가 가장 많은 차가 우승한다.")
     void longestDistanceIsWin() {
         // given
-        String userInput = "ploy,morph1,morph2,morph3";
+        String userInput = "ploy,morp1,morp2,morp3";
         String[] names = userInput.split(",");
         int numberOfNames = names.length;
         Racing racing = new Racing(names, 1);
@@ -36,14 +36,14 @@ public class RacingTests {
         racing.cars.get(2).goForward();
 
         // then
-        assertThat(racing.getPrintFormatWinnerName()).isEqualTo("morph1, morph2");
+        assertThat(racing.getPrintFormatWinnerName()).isEqualTo("morp1, morp2");
     }
 
     @Test
     @DisplayName("사용자가 입력한 만큼 랩을 돈다")
     void racingOneLap() {
         // given
-        String userInput = "ploy,morph1,morph2";
+        String userInput = "ploy,morh1,mrph2";
         String[] names = userInput.split(",");
         Racing racing = new Racing(names, 3);
 

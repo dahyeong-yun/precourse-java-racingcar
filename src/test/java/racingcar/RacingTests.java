@@ -28,7 +28,6 @@ public class RacingTests {
         // given
         String userInput = "ploy,morp1,morp2,morp3";
         String[] names = userInput.split(",");
-        int numberOfNames = names.length;
         Racing racing = new Racing(names, 1);
 
         // when

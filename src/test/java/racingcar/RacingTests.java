@@ -36,7 +36,7 @@ public class RacingTests {
         racing.cars.get(2).goForward();
 
         // then
-        assertThat(racing.getWinnerName()).isEqualTo("morph1morph2"); // TODO ,처리
+        assertThat(racing.getPrintFormatWinnerName()).isEqualTo("morph1, morph2");
     }
 
     @Test

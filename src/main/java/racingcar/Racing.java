@@ -9,7 +9,8 @@ import java.util.List;
 public class Racing {
     public List<Car> cars;
     private int lapCount;
-
+    private List<String> winnerName =  new ArrayList<>();
+    
     public Racing(String[] carNames, int lapCount) {
         this.lapCount = lapCount;
         cars = new ArrayList<>();
@@ -18,20 +19,19 @@ public class Racing {
         }
     }
 
-    public String getWinnerName() {
-        StringBuffer winnerName = new StringBuffer();
+    public String getPrintFormatWinnerName() {
         int maxDistance = getMaxDistance();
 
         for (Car car : cars) {
-            setWinnerName(winnerName, maxDistance, car);
+            setWinnerName(maxDistance, car);
         }
 
-        return winnerName.toString();
+        return String.join(", ", winnerName);
     }
 
-    private void setWinnerName(StringBuffer winnerName, int maxDistance, Car car) {
+    private void setWinnerName(int maxDistance, Car car) {
         if(maxDistance == car.getDistance()) {
-            winnerName.append(car.getName());
+            winnerName.add(car.getName());
         }
     }
 
@@ -62,6 +62,6 @@ public class Racing {
             lap();
         }
 
-        return getWinnerName();
+        return getPrintFormatWinnerName();
     }
 }

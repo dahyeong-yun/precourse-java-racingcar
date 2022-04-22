@@ -17,7 +17,7 @@ public class Game {
         Racing racing = Racing.setRacingCondition(carNames, lapTimes);
 
         System.out.print("\n");
-        System.out.print("최종 우승자는 "+racing.start()+" 입니다.");
+        System.out.print("최종 우승자: "+racing.start());
     }
 
     private static String getInputName() {

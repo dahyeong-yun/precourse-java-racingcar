@@ -6,13 +6,14 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 
 public class CarTests {
-    String name = "poly";
-    
+    String inputName = "poly";
+    CarName carName = CarName.createCarName(inputName);
+
     @Test
     @DisplayName("차가 전진하면 이동거리가 1 증가한다")
     void forwardTest() {
         // given
-        Car car = new Car(name);
+        Car car = new Car(carName);
 
         // when
         car.goForward();
@@ -25,7 +26,7 @@ public class CarTests {
     @DisplayName("주어진 값이 4 이상이면 전진, 3 이하면 멈춘다")
     void goOrNotTest() {
         // given
-        Car car = new Car(name);
+        Car car = new Car(carName);
 
         // when
         car.goOrNot(4);
@@ -40,20 +41,11 @@ public class CarTests {
     void carHasNameWhenCreated() {
         // given
         String testerName = "morph";
-
+        CarName carTestName = CarName.createCarName(testerName);
         // when
-        Car car = new Car(testerName);
+        Car car = new Car(carTestName);
 
         // then
-        assertThat(car.getName()).isEqualTo(testerName);
-    }
-    
-    @Test
-    @DisplayName("차의 이름이 5글자 초과이면 예외가 발생한다.")
-    void carNameLengthMustBeUnderFive() {
-        String testerName = "polymorph";
-        assertThatThrownBy(() -> new Car(testerName))
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("[ERROR]");
+        assertThat(car.getCarNameString()).isEqualTo(testerName);
     }
 }

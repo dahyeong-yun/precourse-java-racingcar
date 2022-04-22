@@ -9,12 +9,13 @@ import java.util.List;
 public class Racing {
     public List<Car> cars;
     private final int lapCount;
-    private List<String> winnerName =  new ArrayList<>();
+    private final List<String> winnerName =  new ArrayList<>();
     
     private Racing(String[] inputNames, int lapCount) {
         this.lapCount = lapCount;
         cars = new ArrayList<>();
-        for (String carName : inputNames) {
+        for (String inputName : inputNames) {
+            CarName carName = CarName.createCarName(inputName);
             cars.add(new Car(carName));
         }
     }
@@ -35,7 +36,7 @@ public class Racing {
 
     private void setWinnerName(int maxDistance, Car car) {
         if(maxDistance == car.getDistance()) {
-            winnerName.add(car.getName());
+            winnerName.add(car.getCarNameString());
         }
     }
 

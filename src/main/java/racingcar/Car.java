@@ -2,23 +2,11 @@ package racingcar;
 
 public class Car {
     private static final String LAB_RESULT_FORMAT = "%s : %s\n";
-    private final String name;
+    private final CarName carName;
     private int distance;
 
-    public Car(String name) {
-        try {
-            validateCarName(name);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e);
-            throw e;
-        }
-        this.name = name;
-    }
-
-    private void validateCarName(String name) {
-        if(name.length() > 5 || name.length() == 0) {
-            throw new IllegalArgumentException("[ERROR]");
-        }
+    public Car(CarName carName) {
+        this.carName = carName;
     }
 
     public void goForward() {
@@ -35,16 +23,16 @@ public class Car {
         }
     }
 
-    public String getName() {
-        return this.name;
+    public String getCarNameString() {
+        return this.carName.getString();
     }
 
     public void printLabResult() {
-        System.out.print(String.format(LAB_RESULT_FORMAT, this.name, getProgressBar(this.distance)));
+        System.out.printf(LAB_RESULT_FORMAT, this.carName.getString(), getProgressBar(this.distance));
     }
 
     private String getProgressBar(int distance) {
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < distance; i++) {
             result.append("-");
         }

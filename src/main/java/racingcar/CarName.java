@@ -1,15 +1,12 @@
 package racingcar;
 
 public class CarName {
+    private final String ERROR_NAME_LENGTH_LIMIT = "[ERROR] 이름은 5글자 이하여야 합니다.";
+
     private final String carName;
 
     private CarName(String carName) {
-        try {
-            validateCarName(carName);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            throw e;
-        }
+        validateCarName(carName);
         this.carName = carName;
     }
 
@@ -19,7 +16,7 @@ public class CarName {
 
     private void validateCarName(String name) {
         if(name.length() > 5 || name.length() == 0) {
-            throw new IllegalArgumentException("[ERROR]");
+            throw new IllegalArgumentException(ERROR_NAME_LENGTH_LIMIT);
         }
     }
 

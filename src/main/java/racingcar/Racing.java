@@ -11,17 +11,16 @@ public class Racing {
     private final int lapCount;
     private final List<String> winnerName =  new ArrayList<>();
     
-    private Racing(String[] inputNames, int lapCount) {
+    private Racing(CarNames carNames, int lapCount) {
         this.lapCount = lapCount;
         cars = new ArrayList<>();
-        for (String inputName : inputNames) {
-            CarName carName = CarName.createCarName(inputName);
+        for (CarName carName : carNames.getCarNames()) {
             cars.add(new Car(carName));
         }
     }
     
-    public static Racing setRacingCondition(String[] inputNames, int lapCount) {
-        return new Racing(inputNames, lapCount);
+    public static Racing setRacingCondition(CarNames carNames, int lapCount) {
+        return new Racing(carNames, lapCount);
     }
 
     public String getPrintFormatWinnerName() {

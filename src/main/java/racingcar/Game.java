@@ -13,7 +13,8 @@ public class Game {
         int lapTimes = Integer.parseInt(Console.readLine());
         System.out.print("\n");
 
-        String[] carNames = userInput.split(",");
+        CarNames carNames = CarNames.getCarNamesFromInput(userInput);
+
         Racing racing = Racing.setRacingCondition(carNames, lapTimes);
 
         System.out.print("\n");

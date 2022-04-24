@@ -8,15 +8,9 @@ public class Game {
         CarNames carNames = getInputName();
         LapCount lapTimes =  getInputLapCount();
         Racing racing = setRacing(carNames, lapTimes);
-        String winnerNames = racing.start();
+        racing.start();
+        String winnerNames = racing.getPrintFormatWinnerName();
         printResult(winnerNames);
-    }
-
-    private static LapCount getInputLapCount() {
-        System.out.print("시도할 회수는 몇회인가요?\n");
-        String userInputCount = Console.readLine();
-
-        return LapCount.createLapCount(userInputCount);
     }
 
     private static CarNames getInputName() {
@@ -28,6 +22,13 @@ public class Game {
             System.out.println(e.getMessage());
             return getInputName();
         }
+    }
+
+    private static LapCount getInputLapCount() {
+        System.out.print("시도할 회수는 몇회인가요?\n");
+        String userInputCount = Console.readLine();
+
+        return LapCount.createLapCount(userInputCount);
     }
 
     private static Racing setRacing(CarNames carNames, LapCount lapTimes) {

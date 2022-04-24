@@ -7,16 +7,13 @@ import java.util.List;
 
 
 public class Racing {
-    public List<Car> cars;
+    private final Cars cars;
     private final LapCount lapCount;
     private final List<String> winnerName =  new ArrayList<>();
     
     private Racing(CarNames carNames, LapCount lapCount) {
         this.lapCount = lapCount;
-        cars = new ArrayList<>();
-        for (CarName carName : carNames.getCarNames()) {
-            cars.add(new Car(carName));
-        }
+        this.cars = Cars.createCars(carNames);
     }
     
     public static Racing setRacingCondition(CarNames carNames, LapCount lapCount) {
@@ -26,7 +23,7 @@ public class Racing {
     public String getPrintFormatWinnerName() {
         int maxDistance = getMaxDistance();
 
-        for (Car car : cars) {
+        for (Car car : cars.getCars()) {
             setWinnerName(maxDistance, car);
         }
 
@@ -41,7 +38,7 @@ public class Racing {
 
     private int getMaxDistance() {
         int maxDistance = 0;
-        for (Car car : cars) {
+        for (Car car : cars.getCars()) {
             maxDistance = setMaxDistance(maxDistance, car.getDistance());
         }
         return maxDistance;
@@ -54,20 +51,18 @@ public class Racing {
         return maxDistance;
     }
 
-    public void lap() {
-        for (Car car : cars) {
+    private void lap() {
+        for (Car car : cars.getCars()) {
             car.goOrNot(Randoms.pickNumberInRange(1, 10));
             car.printLabResult();
         }
         System.out.print("\n");
     }
 
-    public String start() {
+    public void start() {
     	System.out.print("실행 결과\n");
         for (int i = 0; i < this.lapCount.getLapCount(); i++) {
             lap();
         }
-
-        return getPrintFormatWinnerName();
     }
 }

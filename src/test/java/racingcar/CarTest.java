@@ -13,7 +13,7 @@ public class CarTest {
     @DisplayName("차가 전진하면 이동거리가 1 증가한다")
     void forwardTest() {
         // given
-        Car car = new Car(carName);
+        Car car = Car.createCar(carName);
 
         // when
         car.goForward();
@@ -26,7 +26,7 @@ public class CarTest {
     @DisplayName("주어진 값이 4 이상이면 전진, 3 이하면 멈춘다")
     void goOrNotTest() {
         // given
-        Car car = new Car(carName);
+        Car car = Car.createCar(carName);
 
         // when
         car.goOrNot(4);
@@ -43,7 +43,7 @@ public class CarTest {
         String testerName = "morph";
         CarName carTestName = CarName.createCarName(testerName);
         // when
-        Car car = new Car(carTestName);
+        Car car = Car.createCar(carTestName);
 
         // then
         assertThat(car.getCarNameString()).isEqualTo(testerName);

@@ -10,7 +10,7 @@ public class Cars {
         List<Car> carList = new ArrayList<>();
 
         for (CarName carName : carNames.getCarNames()) {
-            carList.add(new Car(carName));
+            carList.add(Car.createCar(carName));
         }
 
         this.cars = carList;

@@ -4,6 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Game {
 
+    public static final String PRINT_ASK_CAR_NAMES = "경주할 자동차 이름을 입력하세요.\n";
+    public static final String PRINT_ASK_LAP_COUNT = "시도할 회수는 몇회인가요?\n";
+
     public static void play() {
         CarNames carNames = getInputName();
         LapCount lapTimes = getInputLapCount();
@@ -14,7 +17,7 @@ public class Game {
     }
 
     private static CarNames getInputName() {
-        System.out.print("경주할 자동차 이름을 입력하세요.\n");
+        System.out.print(PRINT_ASK_CAR_NAMES);
         String userInput = Console.readLine();
         try {
             return CarNames.getCarNamesFromInput(userInput);
@@ -25,7 +28,7 @@ public class Game {
     }
 
     private static LapCount getInputLapCount() {
-        System.out.print("시도할 회수는 몇회인가요?\n");
+        System.out.print(PRINT_ASK_LAP_COUNT);
         String userInputCount = Console.readLine();
         try {
             return LapCount.createLapCount(userInputCount);

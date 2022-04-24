@@ -3,6 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Racing {
+    public static final String PRINT_RESULT_INSTRUCTOR = "실행 결과\n";
+    public static final int START_INCLUSIVE = 1;
+    public static final int END_INCLUSIVE = 10;
     private final Cars cars;
     private final LapCount lapCount;
 
@@ -17,14 +20,14 @@ public class Racing {
 
     private void lap() {
         for (Car car : cars.getCars()) {
-            car.goOrNot(Randoms.pickNumberInRange(1, 10));
+            car.goOrNot(Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE));
             car.printLabResult();
         }
         System.out.print("\n");
     }
 
     public void start() {
-        System.out.print("실행 결과\n");
+        System.out.print(PRINT_RESULT_INSTRUCTOR);
         for (int i = 0; i < this.lapCount.getLapCount(); i++) {
             lap();
         }

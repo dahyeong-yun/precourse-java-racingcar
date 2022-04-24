@@ -2,6 +2,7 @@ package racingcar;
 
 public class Distance {
     public static final int INITIATE_DISTANCE = 0;
+    public static final int FORWARD_UNIT = 1;
     private final int intDistance;
 
     private Distance(int intDistance) {
@@ -17,6 +18,6 @@ public class Distance {
     }
 
     public Distance goForward() {
-        return new Distance(this.intDistance + 1);
+        return new Distance(this.intDistance + FORWARD_UNIT);
     }
 }

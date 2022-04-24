@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingResult {
+    public static final String PRINT_FORMAT_FINAL_WINNER = "최종 우승자: %s";
     private final List<String> winnerNames;
 
     private RacingResult(Racing racing) {
@@ -47,6 +48,6 @@ public class RacingResult {
 
     public void printResult() {
         System.out.print("\n");
-        System.out.printf("최종 우승자: %s", String.join(", ", this.winnerNames));
+        System.out.printf(PRINT_FORMAT_FINAL_WINNER, String.join(", ", this.winnerNames));
     }
 }

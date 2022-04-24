@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class CarTests {
+public class CarTest {
     String inputName = "poly";
     CarName carName = CarName.createCarName(inputName);
 

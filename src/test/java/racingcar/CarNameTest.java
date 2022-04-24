@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class CarNameTests {
+public class CarNameTest {
     @Test
     @DisplayName("차의 이름이 5글자 초과이면 예외가 발생한다.")
     void carNameLengthMustBeUnderFive() {

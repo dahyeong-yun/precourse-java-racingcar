@@ -9,8 +9,8 @@ public class Game {
         LapCount lapTimes =  getInputLapCount();
         Racing racing = setRacing(carNames, lapTimes);
         racing.start();
-        String winnerNames = racing.getPrintFormatWinnerName();
-        printResult(winnerNames);
+        RacingResult racingResult =RacingResult.generateResult(racing);
+        racingResult.printResult();
     }
 
     private static CarNames getInputName() {
@@ -39,10 +39,5 @@ public class Game {
     private static Racing setRacing(CarNames carNames, LapCount lapTimes) {
         System.out.print("\n");
         return Racing.setRacingCondition(carNames, lapTimes);
-    }
-
-    private static void printResult(String winnerNames) {
-        System.out.print("\n");
-        System.out.printf("최종 우승자: %s", winnerNames);
     }
 }

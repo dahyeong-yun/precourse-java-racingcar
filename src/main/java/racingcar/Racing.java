@@ -9,7 +9,6 @@ import java.util.List;
 public class Racing {
     private final Cars cars;
     private final LapCount lapCount;
-    private final List<String> winnerName =  new ArrayList<>();
     
     private Racing(CarNames carNames, LapCount lapCount) {
         this.lapCount = lapCount;
@@ -18,37 +17,6 @@ public class Racing {
     
     public static Racing setRacingCondition(CarNames carNames, LapCount lapCount) {
         return new Racing(carNames, lapCount);
-    }
-
-    public String getPrintFormatWinnerName() {
-        int maxDistance = getMaxDistance();
-
-        for (Car car : cars.getCars()) {
-            setWinnerName(maxDistance, car);
-        }
-
-        return String.join(", ", winnerName);
-    }
-
-    private void setWinnerName(int maxDistance, Car car) {
-        if(maxDistance == car.getDistance()) {
-            winnerName.add(car.getCarNameString());
-        }
-    }
-
-    private int getMaxDistance() {
-        int maxDistance = 0;
-        for (Car car : cars.getCars()) {
-            maxDistance = setMaxDistance(maxDistance, car.getDistance());
-        }
-        return maxDistance;
-    }
-
-    private int setMaxDistance(int maxDistance, int currentCarDistance) {
-        if(maxDistance < currentCarDistance) {
-            maxDistance = currentCarDistance;
-        }
-        return maxDistance;
     }
 
     private void lap() {
@@ -64,5 +32,9 @@ public class Racing {
         for (int i = 0; i < this.lapCount.getLapCount(); i++) {
             lap();
         }
+    }
+
+    public Cars getCars() {
+        return this.cars;
     }
 }

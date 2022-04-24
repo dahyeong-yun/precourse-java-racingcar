@@ -20,4 +20,19 @@ public class Distance {
     public Distance goForward() {
         return new Distance(this.intDistance + FORWARD_UNIT);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Distance distance = (Distance) o;
+
+        return intDistance == distance.intDistance;
+    }
+
+    @Override
+    public int hashCode() {
+        return intDistance;
+    }
 }

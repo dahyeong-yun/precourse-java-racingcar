@@ -30,4 +30,19 @@ public class LapCount {
     public int getLapCount() {
         return this.intLapCount;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        LapCount lapCount = (LapCount) o;
+
+        return intLapCount == lapCount.intLapCount;
+    }
+
+    @Override
+    public int hashCode() {
+        return intLapCount;
+    }
 }

@@ -42,6 +42,7 @@ public class CarTest {
         // given
         String testerName = "morph";
         CarName carTestName = CarName.createCarName(testerName);
+
         // when
         Car car = Car.createCar(carTestName);
 

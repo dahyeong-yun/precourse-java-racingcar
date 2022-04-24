@@ -15,7 +15,7 @@ public class CarName {
     }
 
     private void validateCarName(String name) {
-        if(name.length() > 5 || name.length() == 0) {
+        if (name.length() > 5 || name.length() == 0) {
             throw new IllegalArgumentException(ERROR_NAME_LENGTH_LIMIT);
         }
     }

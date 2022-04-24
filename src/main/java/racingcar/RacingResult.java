@@ -25,7 +25,7 @@ public class RacingResult {
     }
 
     private void setWinnerName(int maxDistance, Car car, List<String> winnerList) {
-        if(maxDistance == car.getDistance()) {
+        if (maxDistance == car.getDistance()) {
             winnerList.add(car.getCarNameString());
         }
     }
@@ -39,7 +39,7 @@ public class RacingResult {
     }
 
     private int setMaxDistance(int maxDistance, int currentCarDistance) {
-        if(maxDistance < currentCarDistance) {
+        if (maxDistance < currentCarDistance) {
             maxDistance = currentCarDistance;
         }
         return maxDistance;

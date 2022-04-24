@@ -5,9 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
-class LapCountTest {
+public class LapCountTest {
 
     @Test
     @DisplayName("lap 횟수는 사용자 입력 값으로 설정된다.")
@@ -20,7 +19,7 @@ class LapCountTest {
     @DisplayName("lap 횟수는 숫자만 입력 가능하다.")
     void onlyNumberLapCount() {
         assertThatThrownBy(() -> LapCount.createLapCount("str"))
-                .isInstanceOf(IllegalArgumentException.class)
+                .isInstanceOf(NumberFormatException.class)
                 .hasMessageContaining("[ERROR]");
     }
 

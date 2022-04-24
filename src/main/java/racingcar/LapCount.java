@@ -18,7 +18,7 @@ public class LapCount {
             throw new NumberFormatException(ERROR_LAB_COUNT_ONLY_POSITIVE_INTEGER);
         }
 
-        if(input < 1) {
+        if (input < 1) {
             throw new IllegalArgumentException(ERROR_LAB_COUNT_ONLY_POSITIVE_INTEGER);
         }
     }

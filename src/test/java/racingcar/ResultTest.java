@@ -33,7 +33,7 @@ public class ResultTest {
         Racing racing = Racing.setRacingCondition(carNames, LapCount.createLapCount("1"));
 
         MockedStatic<Randoms> mock = mockStatic(Randoms.class);
-        mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(1,4,4,2);
+        mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(1, 4, 4, 2);
 
         // when
         racing.start();

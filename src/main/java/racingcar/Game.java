@@ -6,10 +6,10 @@ public class Game {
 
     public static void play() {
         CarNames carNames = getInputName();
-        LapCount lapTimes =  getInputLapCount();
+        LapCount lapTimes = getInputLapCount();
         Racing racing = setRacing(carNames, lapTimes);
         racing.start();
-        RacingResult racingResult =RacingResult.generateResult(racing);
+        RacingResult racingResult = RacingResult.generateResult(racing);
         racingResult.printResult();
     }
 
@@ -18,7 +18,7 @@ public class Game {
         String userInput = Console.readLine();
         try {
             return CarNames.getCarNamesFromInput(userInput);
-        } catch (IllegalArgumentException e)  {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return getInputName();
         }
@@ -30,7 +30,7 @@ public class Game {
         try {
             return LapCount.createLapCount(userInputCount);
 
-        } catch (IllegalArgumentException e)  {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return getInputLapCount();
         }

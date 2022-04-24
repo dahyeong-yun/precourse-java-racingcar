@@ -11,7 +11,7 @@ public class CarNames {
     private CarNames(String userInput) {
         String[] inputNames = userInput.split(",");
         List<CarName> inputCarNames = new ArrayList<>();
-        for(String name : inputNames) {
+        for (String name : inputNames) {
             CarName carName = CarName.createCarName(name);
             validateCarName(inputCarNames, carName);
             inputCarNames.add(carName);
@@ -20,7 +20,7 @@ public class CarNames {
     }
 
     private void validateCarName(List<CarName> inputCarNames, CarName carName) {
-        if(isDuplicate(inputCarNames, carName)) {
+        if (isDuplicate(inputCarNames, carName)) {
             throw new IllegalArgumentException(ERROR_DUPLICATE_CAR_NAME);
         }
     }

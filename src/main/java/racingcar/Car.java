@@ -24,7 +24,7 @@ public class Car {
     }
 
     public void goOrNot(int flag) {
-        if(flag >= 4) {
+        if (flag >= 4) {
             goForward();
         }
     }
@@ -37,9 +37,9 @@ public class Car {
         System.out.printf(LAB_RESULT_FORMAT, this.carName.getString(), getProgressBar(this.distance.getCurrentDistance()));
     }
 
-    private String getProgressBar(int distance) {
+    private String getProgressBar(int intDistance) {
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < distance; i++) {
+        for (int i = 0; i < intDistance; i++) {
             result.append("-");
         }
         return result.toString();

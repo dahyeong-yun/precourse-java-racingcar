@@ -4,9 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-class DistanceTest {
+public class DistanceTest {
 
     @Test
     @DisplayName("초기에 생성된 거리는 0이다.")

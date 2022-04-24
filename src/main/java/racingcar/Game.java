@@ -32,7 +32,6 @@ public class Game {
         String userInputCount = Console.readLine();
         try {
             return LapCount.createLapCount(userInputCount);
-
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return getInputLapCount();

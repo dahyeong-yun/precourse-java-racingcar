@@ -42,7 +42,7 @@ public class ResultTest {
         racingResult.printResult();
 
         // then
-        String s = outputMessage.toString();
-        assertThat(s.contains(RESULT_EXPECTED)).isTrue();
+        String printedMessage = ResultTest.outputMessage.toString();
+        assertThat(printedMessage.contains(RESULT_EXPECTED)).isTrue();
     }
 }

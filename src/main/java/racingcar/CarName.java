@@ -23,4 +23,19 @@ public class CarName {
     public String getString() {
         return this.carName;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CarName carName1 = (CarName) o;
+
+        return carName.equals(carName1.carName);
+    }
+
+    @Override
+    public int hashCode() {
+        return carName.hashCode();
+    }
 }

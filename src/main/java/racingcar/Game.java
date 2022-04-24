@@ -4,15 +4,12 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Game {
 
-    public static void start() {
+    public static void play() {
         CarNames carNames = getInputName();
         LapCount lapTimes =  getInputLapCount();
-
-        System.out.print("\n");
-        Racing racing = Racing.setRacingCondition(carNames, lapTimes);
-
-        System.out.print("\n");
-        System.out.print("최종 우승자: "+racing.start());
+        Racing racing = setRacing(carNames, lapTimes);
+        String winnerNames = racing.start();
+        printResult(winnerNames);
     }
 
     private static LapCount getInputLapCount() {
@@ -31,5 +28,15 @@ public class Game {
             System.out.println(e.getMessage());
             return getInputName();
         }
+    }
+
+    private static Racing setRacing(CarNames carNames, LapCount lapTimes) {
+        System.out.print("\n");
+        return Racing.setRacingCondition(carNames, lapTimes);
+    }
+
+    private static void printResult(String winnerNames) {
+        System.out.print("\n");
+        System.out.printf("최종 우승자: %s", winnerNames);
     }
 }

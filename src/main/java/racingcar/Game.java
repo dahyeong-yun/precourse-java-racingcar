@@ -27,8 +27,13 @@ public class Game {
     private static LapCount getInputLapCount() {
         System.out.print("시도할 회수는 몇회인가요?\n");
         String userInputCount = Console.readLine();
+        try {
+            return LapCount.createLapCount(userInputCount);
 
-        return LapCount.createLapCount(userInputCount);
+        } catch (IllegalArgumentException e)  {
+            System.out.println(e.getMessage());
+            return getInputLapCount();
+        }
     }
 
     private static Racing setRacing(CarNames carNames, LapCount lapTimes) {

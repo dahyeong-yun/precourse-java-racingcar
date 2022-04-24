@@ -6,15 +6,20 @@ public class Game {
 
     public static void start() {
         CarNames carNames = getInputName();
+        LapCount lapTimes =  getInputLapCount();
 
-        System.out.print("시도할 회수는 몇회인가요?\n");
-        int lapTimes = Integer.parseInt(Console.readLine());
         System.out.print("\n");
-
         Racing racing = Racing.setRacingCondition(carNames, lapTimes);
 
         System.out.print("\n");
         System.out.print("최종 우승자: "+racing.start());
+    }
+
+    private static LapCount getInputLapCount() {
+        System.out.print("시도할 회수는 몇회인가요?\n");
+        String userInputCount = Console.readLine();
+
+        return LapCount.createLapCount(userInputCount);
     }
 
     private static CarNames getInputName() {

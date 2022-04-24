@@ -10,9 +10,6 @@ import org.mockito.MockedStatic;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class RacingTests {
     @Test
     @DisplayName("레이싱은 입력한 이름의 수 만큼의 차를 갖는다")
@@ -23,7 +20,7 @@ public class RacingTests {
 
         CarNames carNames = CarNames.getCarNamesFromInput(userInput);
 
-        Racing racing = Racing.setRacingCondition(carNames, 1);
+        Racing racing = Racing.setRacingCondition(carNames, LapCount.createLapCount("1"));
         assertThat(racing.cars.size()).isEqualTo(numberOfNames);
     }
 
@@ -34,7 +31,7 @@ public class RacingTests {
         String userInput = "ploy,morp1,morp2,morp3";
         CarNames carNames = CarNames.getCarNamesFromInput(userInput);
 
-        Racing racing = Racing.setRacingCondition(carNames, 1);
+        Racing racing = Racing.setRacingCondition(carNames, LapCount.createLapCount("1"));
 
         // when
         racing.cars.get(1).goForward();
@@ -51,7 +48,7 @@ public class RacingTests {
         String userInput = "ploy,morh1,mrph2";
         CarNames carNames = CarNames.getCarNamesFromInput(userInput);
 
-        Racing racing = Racing.setRacingCondition(carNames, 3);
+        Racing racing = Racing.setRacingCondition(carNames, LapCount.createLapCount("3"));
 
         MockedStatic<Randoms> mock = mockStatic(Randoms.class);
         mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(4, 2, 3, 5, 7, 1, 7, 2, 4);

@@ -8,10 +8,10 @@ import java.util.List;
 
 public class Racing {
     public List<Car> cars;
-    private final int lapCount;
+    private final LapCount lapCount;
     private final List<String> winnerName =  new ArrayList<>();
     
-    private Racing(CarNames carNames, int lapCount) {
+    private Racing(CarNames carNames, LapCount lapCount) {
         this.lapCount = lapCount;
         cars = new ArrayList<>();
         for (CarName carName : carNames.getCarNames()) {
@@ -19,7 +19,7 @@ public class Racing {
         }
     }
     
-    public static Racing setRacingCondition(CarNames carNames, int lapCount) {
+    public static Racing setRacingCondition(CarNames carNames, LapCount lapCount) {
         return new Racing(carNames, lapCount);
     }
 
@@ -64,7 +64,7 @@ public class Racing {
 
     public String start() {
     	System.out.print("실행 결과\n");
-        for (int i = 0; i < this.lapCount; i++) {
+        for (int i = 0; i < this.lapCount.getLapCount(); i++) {
             lap();
         }
 

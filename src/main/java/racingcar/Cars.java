@@ -6,7 +6,7 @@ import java.util.List;
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(CarNames carNames) {
+    private Cars(CarNames carNames) {
         List<Car> carList = new ArrayList<>();
 
         for (CarName carName : carNames.getCarNames()) {

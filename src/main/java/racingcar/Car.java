@@ -1,8 +1,6 @@
 package racingcar;
 
 public class Car {
-    private static final String LAB_RESULT_FORMAT = "%s : %s\n";
-
     private final CarName carName;
     private Distance distance;
 
@@ -31,17 +29,5 @@ public class Car {
 
     public String getCarNameString() {
         return this.carName.getString();
-    }
-
-    public void printLabResult() {
-        System.out.printf(LAB_RESULT_FORMAT, this.carName.getString(), getProgressBar(this.distance.getCurrentDistance()));
-    }
-
-    private String getProgressBar(int intDistance) {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < intDistance; i++) {
-            result.append("-");
-        }
-        return result.toString();
     }
 }

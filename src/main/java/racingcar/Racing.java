@@ -21,7 +21,7 @@ public class Racing {
     private void lap() {
         for (Car car : cars.getCars()) {
             car.goOrNot(Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE));
-            car.printLabResult();
+            RacingResult.printLabResult(car);
         }
         System.out.print("\n");
     }

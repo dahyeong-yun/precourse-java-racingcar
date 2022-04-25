@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingResult {
-    public static final String PRINT_FORMAT_FINAL_WINNER = "최종 우승자: %s";
+    private static final String LAB_RESULT_FORMAT = "%s : %s\n";
+    private static final String PRINT_FORMAT_FINAL_WINNER = "최종 우승자: %s";
     private final List<String> winnerNames;
 
     private RacingResult(Racing racing) {
@@ -13,6 +14,18 @@ public class RacingResult {
 
     public static RacingResult generateResult(Racing racing) {
         return new RacingResult(racing);
+    }
+
+    public static void printLabResult(Car car) {
+        System.out.printf(LAB_RESULT_FORMAT, car.getCarNameString(), getProgressBar(car.getDistance()));
+    }
+
+    private static String getProgressBar(int intDistance) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < intDistance; i++) {
+            result.append("-");
+        }
+        return result.toString();
     }
 
     public List<String> getWinnerNameList(Cars cars) {

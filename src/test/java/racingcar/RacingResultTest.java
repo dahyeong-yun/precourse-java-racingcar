@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mockStatic;
 
-public class ResultTest {
+public class RacingResultTest {
     private static ByteArrayOutputStream outputMessage;
 
     @BeforeEach
@@ -42,7 +42,7 @@ public class ResultTest {
         racingResult.printResult();
 
         // then
-        String printedMessage = ResultTest.outputMessage.toString();
+        String printedMessage = RacingResultTest.outputMessage.toString();
         assertThat(printedMessage.contains(RESULT_EXPECTED)).isTrue();
     }
 }
